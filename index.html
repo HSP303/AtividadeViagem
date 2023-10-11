@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador viagem</title>
+    <script>
+        function calcular_viagem() {
+            
+            let forms = document.getElementById('forms');
+            let nome = +forms.nome.value;
+            let kms = parseFloat(+forms.idist.value);
+            let litros = parseFloat(+forms.ilitros.value);
+            let preco = parseFloat(+forms.ipreco.value);
+            let autonomia = parseFloat(kms/litros);
+            let valor = parseFloat(litros*preco);
+        
+            document.getElementById('result').innerHTML += autonomia.toFixed(2);
+            document.getElementById('result2').innerHTML += valor.toFixed(2);
+        }
+
+    </script>
+</head>
+<body>
+    <form id="forms">
+        <label for="nome">Nome da Viagem:</label>
+        <input type="text" name="nome" id="nome" placeholder="?">&nbsp;
+        <br>
+        <label for="idist">KMs Percorridos: </label>
+        <input type="number" name="idist" id="idist" placeholder="Km" required>
+        <br>
+        <label for="ilitros">Combustível Gasto:</label>
+        <input type="number" name="ilitros" id="ilitros" placeholder="Litros" required>&nbsp;
+        <br>
+        <label for="ipreço">Preço do Combustível:</label>
+        <input type="number" name="ipreco" id=ipreco" placeholder="Preço por litro" required>
+        <br>
+        <input type="button" value="Calcular" onclick="calcular_viagem()">
+    </form>
+    <p id="result">Autonomia da viagem: </p>
+    <p id="result2">Preço com o combustível: </p>
+</body>
+
+</html>
